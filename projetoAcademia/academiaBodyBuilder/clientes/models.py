@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+# Aqui você vai criar aquilo que representa as suas tabelas pro Banco de Dados.
+# Para cada classe a gente tem uma tabela.
+
 class Cliente(models.Model):
 
     nome = models.CharField(

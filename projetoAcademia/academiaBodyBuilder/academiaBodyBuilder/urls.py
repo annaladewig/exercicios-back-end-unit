@@ -18,8 +18,14 @@ from django.urls import path
 
 from django.contrib import admin
 from django.urls import path, include
+# O include permite que eu chame um app aqui na pasta de urls.
+
+# Serve para direcionar para onde o usuário está indo de acordo com a URL que ele vai digitar.
+# http://localhost:8000/clientes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('clientes/', include('clientes.urls'))
+    # Logo, quando o usuário digitar /clientes na url ele vai ser direcionado para o app de clientes.
+    # E, dentro do app de clientes, ele vai ser direcionado para o arquivo de urls.
 ]

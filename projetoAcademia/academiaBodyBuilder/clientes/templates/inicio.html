@@ -6,8 +6,13 @@
     <link rel="stylesheet" href=" {% static 'css/style.css' %} "/>
 </head>
 <body>
-<h1>Nome do Cliente: {{ Nome }}</h1>
-<h1>Endereço: {{ Endereco }}</h1>
-<h1>Cidade: {{ Cidade }}</h1>
+    {% for cliente in clientes %}
+        <p>Nome: {{cliente.nome}}</p>
+        <p>Sobrenome: {{cliente.sobrenome}}</p>
+        <a href="visualizar/{{cliente.id}}">Visualizar</a> / <a href="{{deletar/cliente.id}}">Deletar</a>
+        <!-- <p>CPF: {{ cliente.cpf }}</p>
+        <p>Telefone: {{ cliente.telefone }}</p> -->
+        <hr>
+    {% endfor %}
 </body>
 </html>

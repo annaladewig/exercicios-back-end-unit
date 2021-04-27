@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visulizar Usuário</title>
+</head>
+<body>
+
+    <h1>Página de visualização de usuário</h1>
+
+{% for cl in cliente %}
+    <p>Nome: {{cl.cliente}}</p>
+    <p>Sobrenome: {{cl.sobrenome}}</p>
+    <p>CPF: {{cl.cpf}}</p>
+    <p>Telefone: {{cl.telefone}}</p>
+    <hr>
+{% endfor %}
+</body>
+</html>
