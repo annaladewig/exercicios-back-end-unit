@@ -6,14 +6,15 @@
 </head>
 <body>
 
-    <h1>Página de visualização de usuário</h1>
+<h1>Página de visualização de usuário</h1>
 
 {% for cl in cliente %}
-    <p>Nome: {{cl.cliente}}</p>
-    <p>Sobrenome: {{cl.sobrenome}}</p>
-    <p>CPF: {{cl.cpf}}</p>
-    <p>Telefone: {{cl.telefone}}</p>
+    <h3>Nome: {{ cl.nome }}</h3>
+    <h3>Sobrenome: {{ cl.sobrenome }}</h3>
+    <h3>CPF: {{ cl.cpf }}</h3>
+    <h3>Telefone: {{ cl.telefone }}</h3>
     <hr>
 {% endfor %}
+
 </body>
 </html>

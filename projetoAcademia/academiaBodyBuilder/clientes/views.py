@@ -12,12 +12,12 @@ from rest_framework.status import HTTP_200_OK
 # O parâmetro, das funções que estão na view, SEMPRE será request. Pois recebem informação de uma url.
 def inicio(request):
 
-    clientes = Cliente.objects.all()
+    clientes = Cliente.objects.all() # Faz um select all no banco de dados.
     contexto = {
         'clientes': clientes
     }
 
-    return render(request, 'inicio.html', contexto)
+    return render(request, 'inicio.html', contexto) # Carrega o arquivo HTML
 
 
 def form_cadastro(request):
@@ -25,19 +25,26 @@ def form_cadastro(request):
 
 
 def visualizar(request, user_id):
+
     if request.method == 'GET':
-        cliente = Cliente.objects.filter(id=user_id)
+
+        cliente = Cliente.objects.filter(id=user_id) # Filtra uma ou mais informações do banco de dados.
         contexto = {
             'cliente': cliente
         }
-    return render(request, "visualizar.html, contexto") # Carrega o arquivo HTML
+
+    return render(request, 'visualizar.html', contexto) # Carrega o arquivo HTML
+
 
 def deletar(request, user_id):
 
     if request.method == 'GET':
+
         cliente = Cliente.objects.filter(id=user_id)
         cliente.delete()
-    return HttpResponseRedirect('clientes/inicio')
+
+    return HttpResponseRedirect('/clientes/inicio')
+
 
 #@csrf_exempt #traz a não obrigatoriedade de usar a proteção csrf (que é um proteção contra falsificação de solicitação de site cruzado)
 def cadastro(request):

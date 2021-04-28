@@ -18,5 +18,5 @@ urlpatterns = [
 
     path('form_cadastro', views.form_cadastro, name="form_cadastro"),
     path('visualizar/<int:user_id>', views.visualizar, name="visualizar"),
-    path('deletar/<int:user_id', views.deletar, name="deletar")
+    path('deletar/<int:user_id>', views.deletar, name="deletar")
 ]
