@@ -9,7 +9,11 @@
     {% for cliente in clientes %}
         <h4>Nome: {{ cliente.nome }}</h4>
         <h4>Sobrenome: {{ cliente.sobrenome }}</h4>
-        <a href="visualizar/{{ cliente.id }}">Visualizar</a> / <a href="deletar/{{ cliente.id }}">Deletar</a>
+        <a href="visualizar/{{ cliente.id }}">Visualizar</a>
+        /
+        <a href="deletar/{{ cliente.id }}">Deletar</a>
+        /
+        <a href="atualizar/{{ cliente.id }}">Atualizar</a>
         <hr>
     {% endfor %}
 </body>

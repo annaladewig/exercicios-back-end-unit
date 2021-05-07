@@ -17,7 +17,7 @@ def inicio(request):
         'clientes': clientes
     }
 
-    return render(request, 'inicio.html', contexto) # Carrega o arquivo HTML
+    return render(request, 'inicio.html', contexto) # Carrega o arquivo HTML e passa as informações do back pro front.
 
 
 def form_cadastro(request):
@@ -33,7 +33,17 @@ def visualizar(request, user_id):
             'cliente': cliente
         }
 
-    return render(request, 'visualizar.html', contexto) # Carrega o arquivo HTML
+    return render(request, 'visualizar.html', contexto) # Carrega o arquivo HTML e passa as informações do back pro front.
+
+
+def atualizar(request, user_id):
+
+    if request.method == 'GET':
+        cliente = Cliente.objects.filter(id=user_id)  # Filtra uma ou mais informações do banco de dados.
+        contexto = {
+            'dados_do_cliente': cliente
+        }
+    return render(request, 'atualizar.html', contexto)  # Carrega o arquivo HTML e passa as informações do back pro front.
 
 
 def deletar(request, user_id):
@@ -66,3 +76,18 @@ def cadastro(request):
 
     # O retorno tem que ser uma resposta do tipo HTTP. O Django só é capaz de exibir em uma página se for assim.
     return HttpResponse(json.dumps(response))
+
+def atualizar_dados_usuario(request):
+
+    if request.method == 'POST':
+
+        user_id = request.POST.get('user_id')
+        nome = request.POST.get('nome')
+        sobrenome = request.POST.get('sobrenome')
+        cpf = request.POST.get('cpf')
+        telefone = request.POST.get('telefone')
+
+        cliente = Cliente.objects.filter(id=user_id)
+        cliente.update(nome=nome, sobrenome=sobrenome, cpf=cpf, telefone=telefone)
+
+    return HttpResponseRedirect('/clientes/inicio')

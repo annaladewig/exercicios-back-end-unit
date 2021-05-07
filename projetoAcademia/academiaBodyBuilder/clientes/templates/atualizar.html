@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Atualização</title>
+</head>
+<body>
+
+<h1>Atualização de usuário</h1>
+    {% for cl in dados_do_cliente %}
+        <form action="http://{{ request.get_host }}/clientes/atualizar_dados_usuario" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{ cl.id }}">
+            <label>Nome: </label>
+            <input type="text" name="nome" value="{{ cl.nome }}"/>
+            <br/><br/>
+            <label>Sobrenome: </label>
+            <input type="text" name="sobrenome" value="{{ cl.sobrenome }}"/>
+            <br/><br/>
+            <label>CPF: </label>
+            <input type="text" name="cpf" value="{{ cl.cpf }}"/>
+            <br/><br/>
+            <label>telefone: </label>
+            <input type="text" name="telefone" value="{{ cl.telefone }}"/>
+            <br/><br/>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endfor %}
+
+</body>
+</html>
