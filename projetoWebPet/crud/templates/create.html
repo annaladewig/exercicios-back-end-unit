@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href=" {% static 'css/style.css' %} "/>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=J4EtMwsg3ZyufPEfFyJQxTQWC4HE0qfA4L2L6T4f5FKrg0kGCL7Zn3mNZa0AweIflquA34Xt8mFNI4xKOULtrf3_aLcFDRbKDbAx69-PA8S0moPhi4w7xAi9g1Z_GEi9H2qZC-7B1EcfDYXAyI8iOd0TjpePDJsKxHa6ylX_Ywdw5lwfQoX4XAOMFiJDgmsLhYJNrue8SCQLMUcIs294Mabddnf9XyrPFQ3d34Knnysw0kvDnVfWxje5IBhZ4_AyjpmFLscVDS58jsXxf3kPISAJ-AUr5mMQU-b0AIT_exBbR3KU15ASHflszSSDS9CvcLNHMpZ9eaE_n1oo0GQETo4D1DpbEZZN5LBvsxS5nSLMmyxvdAE3rNiVkZLN5Nm-lLQRRRiu3_IPzPxJAiqcgrDubRnccRRiX4oi8G2aSHtATaxkbSd2oNa_Cy4l0kJBwl6U_o3ZMYJ6fba4ezBlABEujfHMRqWPhdyxfnq2kUsBfNidM60ffivqf2nOokwXXNKj-zP1XgGQtWHjShHcwwQm4SmTjStk1TayMr-cmQ2H7wLB5rO0a2zRgz46D_C_tYGnBaxgUDZABUygD37l6tCbuLMLq0Fbh0tcg4-zeZEC87VIAPpQvf50cp9rvHWmRRdUlzQ9vkwcxS-Rh7cfpVSnuIcNNlJWtM-uTr5bUPcsnEhbn9nwILYBdz84Mz8WTJ8OK7usSLeKZQAqn99qViX4jOE0mGvg-w6m7s2ZVFOcVgEzsVAIR7GMOiAAYCOeKdILjCYaTDN3HMH_uJj20PdFIWQFWPg66Cpef9ZqgsBhXV-4TCJ_E2C3c8ZwsTI3xtDek33IZ2Wr2jDBpLUinWXMIbJluNc6FjluNNoavAFokDPIYplKmYspbiCjnQYJm7g_JirLWiJjjMycE85HZbL9fNKbZ_bQFquX24JINI3-XwmRRWVPSX_hs9yzibnn1A04NIW59VyG5NTPQnrHYh2GCx96e1BsfpEEx4PvMAu76G0-x1VSQnirKEFzLpOXWn8LMAQlUREfXVxAPhyyzY_wq36diyIEIfhGz_zTaPqxSu7eTPsIn4jAhR61RLdeTHZmpefJ80cGEJa5sW6Ybdlf1QKxj7D_aEso0R4dycu-T6zhFd5ZfuLqIhDRusy3NjRilLXamirrd3XaQ9akoW7D92qObrJ8sj6U1hO5ErtDtNxc5n-Ykv9lD0pY0uhH09AnAT1x4CmGwIrWqxy9ug" nonce="ef574b7feaa5b414c71114825f5a580f" charset="UTF-8"></script></head>
+<body>
+
+
+<header>
+     <nav id="menu">
+         <div class="row">
+            <div class ="colunas-nav-direita">
+                 <a class="btn btn-transparente-menu" href="home">WEB PET</a>
+            </div>
+            <div class ="colunas-nav-esquerda">
+                <a class="btn btn-transparente-menu" href="home">HOME</a>
+                <a class="btn btn-transparente-menu" href="index">CADASTRO</a>
+                <a class="btn btn-transparente-menu"  href="social">SOCIAL</a>
+                <a class="btn btn-transparente-menu"  href="criadores">CRIADORES</a>
+
+            </div>
+         </div>
+     </nav>
+  </header>
+
+ <div class="div-cabecalho">
+<div class="div-logo">
+    <img class="logo-titulo" src="../../static/_imagens/nova-logo-mini.png" alt="Logo Mini">
+ </div>
+ <div class="div-titulo">
+     <h1>Cadastro do Bichinho</h1>
+ </div>
+</div>
+
+    <form action="create" method="POST">
+
+        {%csrf_token%}
+      <div class="formulario">
+        <label for="nome">NOME</label> <!--for indica de qual tipo é o formulario-->
+        <input id="nome" class="form-control" name="nome" type="text"/>
+
+      </div>
+      <div class="formulario">
+         <label for="raca">RAÇA</label>
+        <input id="raca" class="form-control" name="raca" type="text"/>
+      </div>
+       <div class="formulario">
+          <label for="especie">ESPÉCIE</label>
+          <input id="especie" class="form-control" name="especie" type="text"/>
+      </div>
+
+       <div class="formulario">
+          <label for="peso">PESO</label>
+          <input id="peso" class="form-control" name="peso" type="text"/>
+       </div>
+
+        <div class="formulario">
+          <label for="dataNascimento">DATA NASCIMENTO</label>
+          <input id="dataNascimento" class="form-control" name="dataNascimento" type="text"/>
+        </div>
+
+        <div class="formulario">
+          <label for="donoPet">NOME DONO</label>
+          <input id="donoPet" class="form-control" name="donoPet" type="text"/>
+        </div>
+
+       <div class="formulario">
+           <label for="telefone">TELEFONE</label>
+           <input id="telefone" class="form-control" name="telefone" type="text"/>
+      </div>
+       <div class="formulario">
+           <label for="endereco">ENDEREÇO</label>
+           <input id="endereco" class="form-control" name="endereco" type="text"/>
+      </div>
+    <div class="alinhamento-btn-create">
+      <button type="submit" class="btn btn-azul">Enviar</button>
+      <button type="reset" class="btn btn-limpar">Limpar</button>
+      <a class="btn btn-limpar" href="/crud/index">Voltar</a> <!--Ao clicar em voltar vai ser redirecionado para a página principal-->
+
+    </div>
+
+</form>
+
+
+</body>
+</html>
