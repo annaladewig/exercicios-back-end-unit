@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualização</title>
+     <link rel="stylesheet" href=" {% static 'css/style.css' %} "/>
+
+<body>
+
+<header>
+     <nav id="menu">
+         <div class="row">
+            <div class ="colunas-nav-direita">
+                 <a class="btn btn-transparente-menu" href="/crud/home">WEB PET</a>
+            </div>
+            <div class ="colunas-nav-esquerda">
+                <a class="btn btn-transparente-menu" href="/crud/home">HOME</a>
+                <a class="btn btn-transparente-menu" href="/crud/index">CADASTRO</a>
+                <a class="btn btn-transparente-menu"  href="/crud/social">SOCIAL</a>
+                <a class="btn btn-transparente-menu"  href="/crud/criadores">CRIADORES</a>
+
+            </div>
+         </div>
+     </nav>
+  </header>
+
+<div class="div-cabecalho">
+<div class="div-logo">
+    <img class="logo-titulo" src="../../static/_imagens/nova-logo-mini.png" alt="Logo Mini">
+ </div>
+ <div class="div-titulo">
+     <h1>Cadastro do Bichinho</h1>
+ </div>
+</div>
+
+{%for an in animal %} <!--informações contidas na lista-->
+
+    <form action="http://{{request.get_host}}/crud/update" method="POST">
+      {%csrf_token%}
+
+      <input name="user_id" type="hidden" value="{{an.id}}"/>
+      <div class="body_update">
+           <div class="formulario">
+                <label for="nome">NOME</label> <!--for indica de qual tipo é o formulario-->
+                <input id="nome" class="form-control" name="nome" type="text" value="{{an.nome}}"/>
+           </div>
+           <div class="formulario">
+              <label for="raca">RAÇA</label>
+              <input id="raca" class="form-control" name="raca" type="text" value="{{an.raca}}"/>
+           </div>
+
+           <div class="formulario">
+              <label for="especie">ESPÉCIE</label>
+              <input id="especie" class="form-control" name="especie" type="text" value="{{an.especie}}"/>
+          </div>
+
+          <div class="formulario">
+              <label for="peso">PESO</label>
+              <input id="peso" class="form-control" name="peso" type="text" value="{{an.peso}}"/>
+          </div>
+
+          <div class="formulario">
+              <label for="dataNascimento">DATA NASCIMENTO</label>
+              <input id="dataNascimento" class="form-control" name="dataNascimento" type="text" value="{{an.dataNascimento}}"/>
+          </div>
+
+          <div class="formulario">
+              <label for="donoPet">NOME DONO</label>
+              <input id="donoPet" class="form-control" name="donoPet" type="text" value="{{an.donoPet}}"/>
+          </div>
+
+           <div class="formulario">
+               <label for="telefone">TELEFONE</label>
+               <input id="telefone" class="form-control" name="telefone" type="text" value="{{an.telefone}}"/>
+           </div>
+           <div class="formulario">
+               <label for="endereco">ENDEREÇO</label>
+               <input id="endereco" class="form-control" name="endereco" type="text" value="{{an.endereco}}"/>
+           </div>
+        <div class="alinhamento-btn-update">
+             <button type="submit" class="btn btn-azul">Salvar</button>
+             <a class="btn btn-limpar" href="/crud/index">Voltar</a>
+        </div>
+
+    </div>
+
+</form>
+
+{%endfor %}
+
+</body>
+</html>
