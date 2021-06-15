@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Cliente</title>
+     <link rel="stylesheet" href=" {% static 'css/style.css' %} "/>
+
+<body>
+
+<header>
+     <nav id="menu">
+         <div class="row">
+            <div class ="colunas-nav-direita">
+                 <a class="btn btn-transparente-menu" href="/crud/home">WEB PET</a>
+            </div>
+            <div class ="colunas-nav-esquerda">
+                <a class="btn btn-transparente-menu" href="/crud/home">HOME</a>
+                <a class="btn btn-transparente-menu" href="/crud/index">CADASTRO</a>
+                <a class="btn btn-transparente-menu"  href="/crud/social">SOCIAL</a>
+                <a class="btn btn-transparente-menu"  href="/crud/criadores">CRIADORES</a>
+
+            </div>
+         </div>
+     </nav>
+  </header>
+
+<div class="div-cabecalho-esquerda">
+<div class="div-logo">
+    <img class="logo-titulo" src="../../static/_imagens/nova-logo-mini.png" alt="Logo Mini">
+ </div>
+ <div class="div-titulo">
+     <h1>Dados do Bichinho</h1>
+ </div>
+</div>
+
+{%for an in animals %} <!--informações contidas na lista-->
+    <div class="row">
+
+         <div class="coluna-dados-visualizar">
+             <p><strong>NOME</strong></p>
+             <p>{{an.nome}}</p>
+        </div>
+        <div class="coluna-dados-visualizar">
+             <p><strong>RAÇA</strong></p>
+             <p>{{an.raca}}</p> <!-- duas chaves está printando--> <!--com percentual é um comando-->
+        </div>
+        <div class ="w-100"></div>
+        <div class="coluna-dados-visualizar">
+             <p><strong>ESPÉCIE</strong></p>
+             <p>{{an.especie}}</p>
+        </div>
+
+        <div class="coluna-dados-visualizar">
+             <p><strong>PESO</strong></p>
+             <p>{{an.peso}}</p>
+        </div>
+
+        <div class="coluna-dados-visualizar">
+             <p><strong>DATA NASCIMENTO</strong></p>
+             <p>{{an.dataNascimento}}</p>
+        </div>
+          <div class ="w-100"></div>
+
+        <div class="coluna-dados-visualizar">
+             <p><strong>NOME DONO</strong></p>
+             <p>{{an.donoPet }}</p>
+        </div>
+
+        <div class="coluna-dados-visualizar">
+             <p><strong>TELEFONE:</strong></p>
+             <p>{{an.telefone}}</p>
+        </div>
+
+         <div class="coluna-dados-visualizar">
+             <p><strong>ENDEREÇO:</strong></p>
+             <p>{{an.endereco}}</p>
+        </div>
+         <div class ="w-100"></div>
+
+    </div>
+    <div class="alinhamento-btn">
+         <a class="btn btn-limpar" href="/crud/index">Voltar</a>
+    </div>
+
+{%endfor %}
+
+</body>
+</html>
